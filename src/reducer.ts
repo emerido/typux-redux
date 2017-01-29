@@ -7,7 +7,7 @@ export function createReducer<S>(initial? : S) : ReducerBuilder<S>
     return new ReducerBuilder(initial);
 }
 
-class ReducerBuilder<S>
+export class ReducerBuilder<S>
 {
 
     private _initial : S;
