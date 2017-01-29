@@ -1,0 +1,16 @@
+{
+  "name": "typux-redux",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "author": "Shvorak Alexey <dr.emerido@gmail.com>",
+  "version": "0.0.1",
+  "license": "MIT",
+  "repository": "bitbucket:emerido/typux-redux",
+  "dependencies": {
+    "@types/react-redux": "^4.4.36",
+    "@types/redux": "^3.6.0",
+    "react-redux": "^5.0.2",
+    "redux": "^3.6.0",
+    "typux": "^0.0.4"
+  }
+}
