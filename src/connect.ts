@@ -1,4 +1,4 @@
-import {connect} from "react-redux";
+import {connect, Dispatch} from "react-redux";
 
 export interface IConnect<TState>
 {
@@ -15,7 +15,7 @@ export interface IConnectProps<TState>
 
 export interface IConnectActions<TState>
 {
-    (dispatch : Function) : any
+    (dispatch : Dispatch<TState>) : any
 }
 
 function Connect<TState>(props : IConnectProps<TState>, actions : IConnectActions<TState>) : IConnect<TState> {
