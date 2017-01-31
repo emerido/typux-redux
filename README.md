@@ -41,6 +41,9 @@ export class CreateUser
 
 ### Action creators
 
+Now action creators is a simple factory functions. No more constants and manual payload creating.
+TypeScript provides a strong type checking when you call it from containers
+
 ```ts
 import {CreateUser} from "../messages/users";
 
