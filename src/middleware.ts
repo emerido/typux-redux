@@ -11,7 +11,7 @@ export function typuxMiddleware() : Middleware {
         }
         if (action.type) {
             let message = getActionMessage(action.type);
-            if (message != null) {
+            if (message) {
                 action.data = action.data instanceof message
                     ? action.data
                     : Object.assign(new message(), action.data)
