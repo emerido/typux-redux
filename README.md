@@ -97,3 +97,32 @@ export const reducer = createReducer<IMember[]>()
     .reducer() // Return reducer function
 ;
 ```
+
+### Containers
+```ts
+import * as React from 'react'
+
+// Import strong typed connect decorator
+import {Connect} from "../store/index";
+
+// Import action creators
+import {fetchUsers, createUser, deleteUser} from "../actions/users";
+
+// Helper function
+import {attachAction} from "typux-redux";
+
+@Connect(
+    (state) => ({
+        users: state.users
+    }),
+    (dispatch) => ({
+        refresh : attachAction(dispatch, fetchUsers),
+        remove : attachAction(dispatch, deleteUser),
+        create : attachAction(dispatch, createUser)
+    })
+)
+export class App extends Component<any, any>
+{
+    
+}
+```
