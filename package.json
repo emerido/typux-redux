@@ -9,10 +9,15 @@
     "type": "git",
     "url": "https://github.com/emerido/typux-redux.git"
   },
+  "files": [
+    "lib/",
+    "tsd/",
+    "README.md"
+  ],
   "dependencies": {
     "react-redux": "^5.0.2",
     "redux": "^3.6.0",
-    "typux": "^0.0.5"
+    "typux": "^0.0.10"
   },
   "devDependencies": {
     "@types/react-redux": "^4.4.36",

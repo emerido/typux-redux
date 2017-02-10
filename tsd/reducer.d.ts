@@ -1,5 +1,5 @@
 import { Reducer, Func2 } from 'redux';
-import { Constructable, Nullable } from "./helpers";
+import { Constructable, Nullable } from "typux";
 export declare function createReducer<S>(initial?: S): ReducerBuilder<S>;
 export declare class ReducerBuilder<S> {
     private _initial;

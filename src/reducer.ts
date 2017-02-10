@@ -1,5 +1,5 @@
-import {Reducer, Action, Func2} from 'redux';
-import {Constructable, Dictionary, Nullable} from "./helpers";
+import {Reducer, Func2} from 'redux';
+import {Constructable, Dictionary, Nullable} from "typux";
 import {getActionName} from "typux";
 
 export function createReducer<S>(initial? : S) : ReducerBuilder<S>

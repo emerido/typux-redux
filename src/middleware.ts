@@ -2,9 +2,6 @@ import {Middleware} from 'redux';
 import {getActionMessage, getActionName} from "typux";
 
 export function typuxMiddleware() : Middleware {
-
-    // Plugins
-
     return store => next => action => {
         if (typeof action !== "object") {
             next(action);
