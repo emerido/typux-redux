@@ -1,5 +1,5 @@
 import {Middleware} from 'redux';
-import {getActionMessage, getActionName} from "typux";
+import {getActionMessage, getActionName} from "./actions";
 
 export function typuxMiddleware() : Middleware {
     return store => next => action => {
@@ -7,7 +7,7 @@ export function typuxMiddleware() : Middleware {
             next(action);
         }
         if (action.type) {
-            let message = getActionMessage(action.type);
+            let message : any = getActionMessage(action.type);
             if (message) {
                 action.data = action.data instanceof message
                     ? action.data

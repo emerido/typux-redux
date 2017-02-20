@@ -17,6 +17,10 @@
   version "3.6.31"
   resolved "https://registry.yarnpkg.com/@types/redux/-/redux-3.6.31.tgz#40eafa7575db36b912ce0059b85de98c205b0708"
 
+"@types/reflect-metadata@^0.0.5":
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/@types/reflect-metadata/-/reflect-metadata-0.0.5.tgz#9c042bfa9803d577aad4f57dfbca4b7cae4286fe"
+
 hoist-non-react-statics@^1.0.3:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-1.2.0.tgz#aa448cf0986d55cc40773b17174b7dd066cb7cfb"
@@ -68,10 +72,17 @@ symbol-observable@^1.0.2:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/symbol-observable/-/symbol-observable-1.0.4.tgz#29bf615d4aa7121bdd898b22d4b3f9bc4e2aa03d"
 
+tslib@^1.5.0:
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.5.0.tgz#3bb50f871e5fdf9a4555a9ff237b730860048fea"
+
 typescript@^2.1.5:
   version "2.1.5"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.1.5.tgz#6fe9479e00e01855247cea216e7561bafcdbcd4a"
 
-typux@^0.0.10:
-  version "0.0.10"
-  resolved "https://registry.yarnpkg.com/typux/-/typux-0.0.10.tgz#c480c8b85de93b479802a0bccab796e6ef4205a6"
+typux@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/typux/-/typux-0.1.1.tgz#c0d0d3f49d7757a6caab6fc3f22443f72c074865"
+  dependencies:
+    "@types/reflect-metadata" "^0.0.5"
+    tslib "^1.5.0"
