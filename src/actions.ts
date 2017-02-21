@@ -20,7 +20,10 @@ export function getActionName(type : any)
 
 export function getActionMessage(name : string)
 {
-    return reflect.classes
-        .find(x => x.hasAttribute(ACTION) && x.getAttribute(ACTION) === name)
+    return (
+        reflect.classes
+            .find(x => x.hasAttribute(ACTION) && x.getAttribute(ACTION) === name)
+        || {} as any
+    )
         .type;
 }

@@ -18,8 +18,9 @@ function getActionName(type) {
 }
 exports.getActionName = getActionName;
 function getActionMessage(name) {
-    return typux_1.reflect.classes
+    return (typux_1.reflect.classes
         .find(function (x) { return x.hasAttribute(exports.ACTION) && x.getAttribute(exports.ACTION) === name; })
+        || {})
         .type;
 }
 exports.getActionMessage = getActionMessage;
