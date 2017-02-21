@@ -1,6 +1,7 @@
 "use strict";
 var actions_1 = require("./actions");
 exports.attachAction = actions_1.attachAction;
+exports.Action = actions_1.Action;
 var connect_1 = require("./connect");
 exports.createConnect = connect_1.createConnect;
 var reducer_1 = require("./reducer");
