@@ -1,5 +1,5 @@
 "use strict";
-var typux_1 = require("typux");
+var actions_1 = require("./actions");
 function createReducer(initial) {
     return new ReducerBuilder(initial);
 }
@@ -22,7 +22,7 @@ var ReducerBuilder = (function () {
             actionName = action;
         }
         if (typeof action === 'function') {
-            actionName = typux_1.getActionName(action);
+            actionName = actions_1.getActionName(action);
         }
         if (actionName == null) {
             throw new Error("Can't get action type from " + action);
