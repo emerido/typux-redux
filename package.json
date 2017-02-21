@@ -1,7 +1,7 @@
 {
   "name": "typux-redux",
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
+  "main": "out/index.js",
+  "types": "out/index.d.ts",
   "author": "Shvorak Alexey <dr.emerido@gmail.com>",
   "version": "0.0.10",
   "license": "MIT",
@@ -10,7 +10,7 @@
     "url": "https://github.com/emerido/typux-redux.git"
   },
   "files": [
-    "lib/",
+    "out/",
     "tsd/",
     "README.md"
   ],
