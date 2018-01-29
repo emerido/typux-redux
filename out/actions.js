@@ -17,10 +17,18 @@ function getActionName(type) {
     return typux_1.reflect.getClassInfo(type).getAttribute(exports.ACTION);
 }
 exports.getActionName = getActionName;
-function getActionMessage(name) {
+function getActionClass(name) {
     return (typux_1.reflect.classes
         .find(function (x) { return x.hasAttribute(exports.ACTION) && x.getAttribute(exports.ACTION) === name; })
         || {})
         .type;
 }
-exports.getActionMessage = getActionMessage;
+exports.getActionClass = getActionClass;
+function fillAction(target, data) {
+    Object.keys(data).forEach(function (key) {
+        if (target.hasOwnProperty(key) && typeof target[key] == 'function')
+            return;
+        target[key] = data[key];
+    });
+}
+exports.fillAction = fillAction;

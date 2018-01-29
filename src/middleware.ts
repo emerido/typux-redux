@@ -1,28 +1,28 @@
 import {Middleware} from 'redux';
-import {getActionMessage, getActionName} from "./actions";
+import {fillAction, getActionClass, getActionName} from "./actions";
 
 export function typuxMiddleware() : Middleware {
-    return store => next => action => {
+    return store => next => (action : any) => {
         if (typeof action !== "object") {
             next(action);
         }
-        if (action.type) {
-            let message : any = getActionMessage(action.type);
+        if (action.type && typeof action.type == 'string') {
+            let message : any = getActionClass(action.type);
             if (message) {
                 action.data = action.data instanceof message
                     ? action.data
-                    : Object.assign(new message(), action.data)
+                    : fillAction(new message(), action.data)
             }
         } else if (isInstance(action)) {
             let name = getActionName(action);
             if (name) {
                 action = {
-                    type : name,
+                    type : name as string,
                     data : action
                 }
             }
         }
-        next(action);
+        return next(action);
     };
 }
 

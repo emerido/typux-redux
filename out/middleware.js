@@ -5,12 +5,12 @@ function typuxMiddleware() {
         if (typeof action !== "object") {
             next(action);
         }
-        if (action.type) {
-            var message = actions_1.getActionMessage(action.type);
+        if (action.type && typeof action.type == 'string') {
+            var message = actions_1.getActionClass(action.type);
             if (message) {
                 action.data = action.data instanceof message
                     ? action.data
-                    : Object.assign(new message(), action.data);
+                    : actions_1.fillAction(new message(), action.data);
             }
         }
         else if (isInstance(action)) {
@@ -22,7 +22,7 @@ function typuxMiddleware() {
                 };
             }
         }
-        next(action);
+        return next(action);
     }; }; };
 }
 exports.typuxMiddleware = typuxMiddleware;

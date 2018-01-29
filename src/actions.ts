@@ -18,7 +18,7 @@ export function getActionName(type : any)
     return reflect.getClassInfo(type).getAttribute(ACTION);
 }
 
-export function getActionMessage(name : string)
+export function getActionClass(name : string)
 {
     return (
         reflect.classes
@@ -26,4 +26,14 @@ export function getActionMessage(name : string)
         || {} as any
     )
         .type;
+}
+
+export function fillAction(target : any, data : any)
+{
+    Object.keys(data).forEach(key => {
+        if (target.hasOwnProperty(key) && typeof target[key] == 'function')
+            return;
+
+        target[key] = data[key];
+    })
 }
