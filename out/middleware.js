@@ -5,15 +5,15 @@ function typuxMiddleware() {
         if (typeof action !== "object") {
             next(action);
         }
-        if (action.type) {
-            var message = actions_1.getActionMessage(action.type);
+        if (isAction(action)) {
+            var message = actions_1.getActionClass(action.type);
             if (message) {
                 action.data = action.data instanceof message
                     ? action.data
-                    : Object.assign(new message(), action.data);
+                    : actions_1.fillAction(new message(), action.data);
             }
         }
-        else if (isInstance(action)) {
+        else if (isMessage(action)) {
             var name = actions_1.getActionName(action);
             if (name) {
                 action = {
@@ -22,10 +22,20 @@ function typuxMiddleware() {
                 };
             }
         }
-        next(action);
+        return next(action);
     }; }; };
 }
 exports.typuxMiddleware = typuxMiddleware;
-function isInstance(value) {
-    return value && value.constructor && value.constructor !== Object;
+function isAction(value) {
+    return value && value.type && typeof value.type === 'string'
+        && false == isMessage(value);
+}
+function isMessage(value) {
+    return value && value.constructor
+        && value.constructor !== Date
+        && value.constructor !== Array
+        && value.constructor !== Object
+        && value.constructor !== Number
+        && value.constructor !== String
+        && value.constructor !== Function;
 }
