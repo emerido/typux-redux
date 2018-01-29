@@ -9,6 +9,10 @@ var ReducerBuilder = (function () {
         this._handlers = {};
         this._initial = initial;
     }
+    ReducerBuilder.prototype.after = function (handler) {
+        this._after = handler;
+        return this;
+    };
     /**
      * Create handler for specific action
      *
@@ -18,18 +22,14 @@ var ReducerBuilder = (function () {
      */
     ReducerBuilder.prototype.on = function (action, handler) {
         var actionName;
-        if (typeof action == 'string') {
+        if (typeof action == 'string')
             actionName = action;
-        }
-        if (typeof action === 'function') {
+        if (typeof action === 'function')
             actionName = actions_1.getActionName(action);
-        }
-        if (actionName == null) {
+        if (actionName == null)
             throw new Error("Can't get action type from " + action);
-        }
-        if (this._handlers.hasOwnProperty(actionName)) {
+        if (this._handlers.hasOwnProperty(actionName))
             throw new Error("Handler for action type " + actionName + " already registered");
-        }
         this._handlers[actionName] = handler;
         return this;
     };
@@ -42,9 +42,10 @@ var ReducerBuilder = (function () {
         return function (state, action) {
             if (_this._handlers.hasOwnProperty(action.type)) {
                 var result = _this._handlers[action.type].call(null, state, action.data);
-                if (result == void 0) {
+                if (result == void 0)
                     return state;
-                }
+                if (_this._after)
+                    _this._after(state);
                 return result;
             }
             else if (state == void 0) {
