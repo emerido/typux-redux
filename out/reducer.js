@@ -45,7 +45,7 @@ var ReducerBuilder = (function () {
                 if (result == void 0)
                     return state;
                 if (_this._after)
-                    _this._after(state);
+                    _this._after(result);
                 return result;
             }
             else if (state == void 0) {

@@ -70,7 +70,7 @@ export class ReducerBuilder<S>
                     return state;
 
                 if (this._after)
-                    this._after(state);
+                    this._after(result);
 
                 return result;
             } else if (state == void 0) {
